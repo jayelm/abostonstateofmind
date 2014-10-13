@@ -4,11 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="textcss" href="css/style.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+  <script>
+    function display() {
+      setTimeout(function() {
+        document.getElementById('content').className += ' visible';
+      }, 500);
+    }
+  </script>
 </head>
 
-<body>
+<body onload="display()">
   <div class="wrap" id="overlay"></div>
-  <div class="wrap" id="content">
+  <div class="wrap hidden" id="content">
     <div id="hero">
       <img id="logo" src="img/logo.png">
       <div class="spacer"></div>

@@ -64,6 +64,7 @@ div#hero {
     height: 45px;
     padding: 10px 0 10px 0;
     width: 275px;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -85,6 +86,15 @@ div#hero {
 
 .button:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #about {

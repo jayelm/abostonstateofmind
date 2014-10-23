@@ -110,8 +110,3 @@ div#hero {
 #play {
     float: right;
 }
-
-@font-face {
-	font-family: 'Gaspar';
-	src: url('Gaspar_Regular-webfont.woff') format('woff');
-}

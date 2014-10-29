@@ -11,12 +11,28 @@
         document.getElementById('content').classList.add('visible');
       }, 500);
 
+      window.addEventListener('keydown', function(e) {
+        switch (e.keyCode) {
+          case 27: // escape
+            if (teaserShowing) {
+              toggleTeaser();
+            }
+            break;
+
+          // Anything else?
+
+          default: return;
+        }
+      });
+
       // Set variables used later
       window.hero = document.getElementById('hero');
       window.about = document.getElementById('about');
       window.play = document.getElementById('play');
       window.description = document.getElementById('description');
+      window.teaser = document.getElementById('video-container');
       description.style.display = 'none';
+      teaser.style.display = 'none';
     }
 
     var mainDisplay = true;
@@ -52,7 +68,31 @@
     }
 
     function toggleTeaser() {
-
+      if (!teaserShowing) {
+        hero.classList.toggle('hidden');
+        setTimeout(function() {
+          hero.style.display = 'none';
+        }, TRANSITION_TIME);
+        setTimeout(function() {
+          teaser.style.display = 'block';
+          setTimeout(function() {
+            teaser.classList.toggle('visible');
+          }, 50);
+        }, TRANSITION_TIME);
+        teaserShowing = false;
+      } else {
+        teaser.classList.toggle('visible');
+        setTimeout(function() {
+          teaser.style.display = 'none';
+        }, TRANSITION_TIME);
+        setTimeout(function() {
+          hero.style.display = 'block';
+          setTimeout(function() { // Mild delay preserves transition
+            hero.classList.toggle('hidden');
+          }, 50);
+        }, TRANSITION_TIME);
+        teaserShowing = true;
+      }
     }
 
   </script>
@@ -65,7 +105,7 @@
       <img id="logo" src="img/logo.png">
       <div class="action_nav">
         <div class="button noselect" id="about" onclick="toggleAbout()">ABOUT</div>
-        <div class="button noselect" id="play">TEASER</div>
+        <div class="button noselect" id="play" onclick="toggleTeaser()">TEASER</div>
       </div>
       <div class="lower">
         <p>APRIL 7, 2015 - 7:00 PM</p>
@@ -93,5 +133,10 @@
       </div>
       </div>
     </div>
+  </div>
+  <div class="initial-hidden" id="video-container">
+    <!-- May need allowfullscreen -->
+    <i id="video-back" class="fa fa-arrow-left fa-2x" onclick="toggleTeaser()"></i>
+    <iframe type="content" src="http://www.youtube.com/embed/SZyIdoH7hGw&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
   </div>
 </body>

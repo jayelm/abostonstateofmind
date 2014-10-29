@@ -97,6 +97,7 @@ div#description {
 }
 
 #inner-wrapper {
+    box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.35);
     width: 100%;
     max-width: 490px;

@@ -79,19 +79,19 @@
             teaser.classList.toggle('visible');
           }, 50);
         }, TRANSITION_TIME);
-        teaserShowing = false;
+        teaserShowing = true;
       } else {
         teaser.classList.toggle('visible');
         setTimeout(function() {
           teaser.style.display = 'none';
         }, TRANSITION_TIME);
         setTimeout(function() {
-          hero.style.display = 'block';
+          hero.style.display = 'table-cell';
           setTimeout(function() { // Mild delay preserves transition
             hero.classList.toggle('hidden');
           }, 50);
         }, TRANSITION_TIME);
-        teaserShowing = true;
+        teaserShowing = false;
       }
     }
 

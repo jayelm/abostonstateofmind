@@ -18,6 +18,29 @@ body {
     color: white;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a#cred {
+    font-weight: bold;
+    opacity: 0.85;
+    -webkit-transition: opacity 0.25s ease-in-out;
+       -moz-transition: opacity 0.25s ease-in-out;
+        -ms-transition: opacity 0.25s ease-in-out;
+         -o-transition: opacity 0.25s ease-in-out;
+            transition: opacity 0.25s ease-in-out;
+}
+
+a#cred:hover {
+    opacity: 1;
+}
+
+h2 {
+    font-weight: 500;
+}
+
 .wrap {
     position: fixed;
     width: 100%;
@@ -40,19 +63,50 @@ body {
             transition: opacity 1.5s ease-in;
 }
 
-.hidden {
-    opacity: 0;
-}
-
-.visible {
-    opacity: 1;
-}
-
-div#hero {
+div#hero, div#description {
     max-width: 100%;
     margin: auto;
     display: table-cell;
     vertical-align: middle;
+    -webkit-transition: opacity 1s ease-in;
+       -moz-transition: opacity 1s ease-in;
+        -ms-transition: opacity 1s ease-in;
+         -o-transition: opacity 1s ease-in;
+            transition: opacity 1s ease-in;
+}
+
+.initial-hidden, div.hidden {
+    opacity: 0;
+}
+
+.initial-visible, div.visible {
+    opacity: 1;
+}
+
+div#description {
+    /* opacity: 0; */
+    max-width: 100%;
+    margin: auto;
+    display: none;
+    vertical-align: middle;
+    -webkit-transition: opacity 1s ease-in;
+       -moz-transition: opacity 1s ease-in;
+        -ms-transition: opacity 1s ease-in;
+         -o-transition: opacity 1s ease-in;
+            transition: opacity 1s ease-in;
+}
+
+#inner-wrapper {
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 490px;
+    padding: 15px 15px 15px 15px;
+    /* height: 394px; */
+    max-width: 100%;
+    margin: auto;
+}
+
+#description.display-table-cell {
+    display: table-cell;
 }
 
 .lower {
@@ -103,10 +157,38 @@ div#hero {
     user-select: none;
 }
 
+
 #about {
     float: left;
 }
 
+h2#about-header {
+    display: inline;
+}
+
 #play {
     float: right;
+}
+
+.small {
+    font-size: 0.8em;
+    display: inline;
+}
+
+i.fa-arrow-left {
+    float: left;
+    cursor: pointer;
+}
+
+i.fa {
+    opacity: 0.85;
+    -webkit-transition: opacity 0.25s ease-in-out;
+       -moz-transition: opacity 0.25s ease-in-out;
+        -ms-transition: opacity 0.25s ease-in-out;
+         -o-transition: opacity 0.25s ease-in-out;
+            transition: opacity 0.25s ease-in-out;
+}
+
+i.fa:hover {
+    opacity: 1;
 }

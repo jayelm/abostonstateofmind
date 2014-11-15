@@ -48,12 +48,18 @@
     var teaserShowing = false;
     var TRANSITION_TIME = 1000;
 
+    // TODO: HTML5 pushState + graceful degrade to hash for SEO
+    /*
+    if (typeof(window.history.pushState) == 'function') {
+        window.history.pushState({id: 'teaser', '', 'about');
+    } else {
+          window.location.hash = '#!' + path;
+    }
+    */
+
     function toggleAbout() {
       if (mainDisplay) {
-        ga('send', 'pageview', {
-          'page': '/about',
-          'title': 'About'
-        });
+        ga('send', 'event', 'button', 'click', 'about');
         hero.classList.toggle('hidden');
         setTimeout(function() {
           hero.style.display = 'none';
@@ -82,10 +88,7 @@
 
     function toggleTeaser() {
       if (!teaserShowing) {
-        ga('send', 'pageview', {
-          'page': '/teaser',
-          'title': 'Teaser'
-        });
+        ga('send', 'event', 'button', 'click', 'teaser');
         hero.classList.toggle('hidden');
         setTimeout(function() {
           hero.style.display = 'none';

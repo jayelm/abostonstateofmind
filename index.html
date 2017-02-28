@@ -46,6 +46,10 @@
       teaser.style.display = 'none';
     }
 
+    window.onpopstate = function(event) {
+      toggleAbout();
+    }
+
     var mainDisplay = true;
     var teaserShowing = false;
     var TRANSITION_TIME = 1000;
@@ -73,6 +77,10 @@
           }, 50);
         }, TRANSITION_TIME);
         mainDisplay = false;
+        // TODO: Figure out pushState more!!
+        if (history.pushState) {
+          history.pushState("about", "", "./about");
+        }
       } else {
         description.classList.toggle('visible');
         setTimeout(function() {
